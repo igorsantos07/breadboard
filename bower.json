@@ -1,5 +1,5 @@
 {
-  "name": "experiment-circuitry",
+  "name": "breadboard",
   "dependencies": {
     "ember": "1.11.1",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",

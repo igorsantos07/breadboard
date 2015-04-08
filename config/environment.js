@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'experiment-circuitry',
+    modulePrefix: 'breadboard',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

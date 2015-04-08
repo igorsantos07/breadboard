@@ -1,7 +1,7 @@
 {
-  "name": "experiment-circuitry",
+  "name": "breadboard",
   "version": "0.0.0",
-  "description": "Small description for experiment-circuitry goes here",
+  "description": "Webapp version of Javelin's Experiment Board",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -23,11 +23,13 @@
     "ember-cli": "0.2.3",
     "ember-cli-app-version": "0.3.3",
     "ember-cli-babel": "^5.0.0",
+    "ember-cli-coffeescript": "0.10.0",
     "ember-cli-content-security-policy": "0.4.0",
     "ember-cli-dependency-checker": "0.0.8",
     "ember-cli-htmlbars": "0.7.4",
     "ember-cli-ic-ajax": "0.1.1",
     "ember-cli-inject-live-reload": "^1.3.0",
+    "ember-cli-less": "^1.3.1",
     "ember-cli-qunit": "0.3.10",
     "ember-cli-uglify": "1.0.1",
     "ember-data": "1.0.0-beta.16.1",

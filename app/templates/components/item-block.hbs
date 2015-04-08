@@ -1,0 +1,19 @@
+<div class="actions btn-group" role="group" aria-label="Actions">
+  {{#if showDetails}}
+    <button class="btn btn-primary btn-xs edit" type="button" aria-label="Edit">
+      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    </button>
+    <button class="btn btn-danger btn-xs remove" type="button" aria-label="Remove">
+      <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    </button>
+  {{/if}}
+  <button class="btn btn-info btn-xs desc" type="button" aria-label="Show description" {{action "toggleDetails"}}>
+    <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+  </button>
+</div>
+
+  <h3 {{action "toggleDetails"}} class="{{if showDetails 'with-details'}}">{{item.title}}</h3>
+
+{{#if showDetails}}
+  <p>{{item.description}}</p>
+{{/if}}

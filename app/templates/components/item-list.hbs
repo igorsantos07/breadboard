@@ -1,0 +1,12 @@
+<h2>
+  {{title}}
+  <button class="btn btn-info btn-sm pull-right" type="button" aria-label="Add {{title}}" {{action 'add'}}>
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </button>
+</h2>
+
+{{#each item in items}}
+  {{#item-block item=item}}
+    {{body}}
+  {{/item-block}}
+{{/each}}
