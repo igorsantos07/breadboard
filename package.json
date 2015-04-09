@@ -1,5 +1,5 @@
 {
-  "name": "breadboard",
+  "name": "protoboard",
   "version": "0.0.0",
   "description": "Webapp version of Javelin's Experiment Board",
   "private": true,
