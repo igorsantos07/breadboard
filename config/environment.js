@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'breadboard',
+    modulePrefix: 'protoboard',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
