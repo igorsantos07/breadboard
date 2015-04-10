@@ -1,5 +1,3 @@
-/* jshint node: true */
-
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'protoboard',
@@ -14,8 +12,9 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      // Here you can pass flags/options to your application instance when it is created
+      applicationId : '9r3cV6ySRli37PHfU9IAqRryEgp3qoJyLjOvJNYq',
+      restApiId:      '4jrhTSgtjo8dWviaBj6FyTrnzKFnOqcQXt5xsCti'
     }
   };
 
@@ -40,7 +39,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    var prod = require('./prod/prod.js');
+    for (var key in prod) {
+      ENV.APP[key] = prod.APP[key];
+    }
   }
 
   return ENV;
