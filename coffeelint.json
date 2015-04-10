@@ -13,7 +13,7 @@
         "level": "error"
     },
     "colon_assignment_spacing": {
-        "level": "error",
+        "level": "ignore",
         "spacing": {
             "left": 0,
             "right": 1
@@ -46,7 +46,7 @@
         "limitComments": true
     },
     "missing_fat_arrows": {
-        "level": "warn"
+        "level": "ignore"
     },
     "newlines_after_classes": {
         "value": 2,
