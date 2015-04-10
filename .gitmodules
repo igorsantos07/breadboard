@@ -1,0 +1,3 @@
+[submodule "config/prod"]
+	path = config/prod
+	url = git@bitbucket.org:snippets/igorsantos07/zogq/config-prod-breadboard.git
