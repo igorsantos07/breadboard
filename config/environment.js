@@ -15,6 +15,12 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance when it is created
       applicationId : '9r3cV6ySRli37PHfU9IAqRryEgp3qoJyLjOvJNYq',
       restApiId:      '4jrhTSgtjo8dWviaBj6FyTrnzKFnOqcQXt5xsCti'
+    },
+
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-inline' www.google-analytics.com sha256-asasa",
+      'style-src': "'self' 'unsafe-inline'",
+      'img-src': "'self' www.google-analytics.com"
     }
   };
 
