@@ -3,7 +3,8 @@
 items = [{
   type: 'customer'
   title: 'Congressista'
-  description: 'Todos que participam de eventos, circuitos de palestras, congressos, encontros, etc'
+  description: 'Todos que participam de eventos, circuitos \
+                de palestras, congressos, encontros, etc'
 }, {
   type: 'customer'
   title: 'Organizador'
@@ -19,15 +20,16 @@ items = [{
 }, {
   type: 'risk'
   title: 'Faltar de um dispositivo'
-  description: 'Vai que o cara não é muito tecnológico e não tem um celular/tablet moderninho?'
+  description: 'Vai que o cara não é muito tecnológico e \
+                não tem um celular/tablet moderninho?'
 }]
 
 hypothesis = [{
   customer: items[0]
   problem:  items[2]
   solution: items[3]
-  risk: items[4]
-  method: 'Interview'
+  risk:     items[4]
+  method:    'Interview'
   criterion: '10/20'
 }]
 
