@@ -6,6 +6,6 @@ Item = DS.Model.extend
   description: DS.attr 'string'
   createdAt:   DS.attr 'date'
   updatedAt:   DS.attr 'date'
-  hypotheses:  DS.hasMany 'hypothesis', async: true
+#  hypotheses:  DS.hasMany 'hypothesis', async: true
 
 `export default Item`
