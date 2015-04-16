@@ -20,9 +20,10 @@ module.exports = function(environment) {
 
     contentSecurityPolicy: {
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com sha256-asasa",
-      'style-src': "'self' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
       'img-src': "'self' www.google-analytics.com",
-      'connect-src': "'self' api.parse.com"
+      'connect-src': "'self' api.parse.com",
+      'font-src': "'self' fonts.gstatic.com"
     }
   };
 
