@@ -19,7 +19,7 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'script-src': "'self' 'unsafe-inline' www.google-analytics.com sha256-asasa",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com sha256-asasa",
       'style-src': "'self' 'unsafe-inline'",
       'img-src': "'self' www.google-analytics.com",
       'connect-src': "'self' api.parse.com"
