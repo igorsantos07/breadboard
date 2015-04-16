@@ -5,14 +5,14 @@
 			    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#menu">
 				    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 			    </button>
-          {{#link-to 'index' class='navbar-brand'}}Protoboard{{/link-to}}
-
-          <small>[
-            <span class="text-success">{{valid}}</span> /
-            <span class="text-danger">{{invalid}}</span> /
-            <span class="text-info">{{total}}</span>
-            hypothesis ]
-          </small>
+          <div class="navbar-brand">
+            {{#link-to 'index'}}Protoboard{{/link-to}}
+            <small>[
+              <span class="text-success">{{valid}}</span> /
+              <span class="text-danger">{{invalid}}</span> /
+              <span class="text-info">{{total}}</span>
+            <span class="text">hypothesis</span>]</small>
+          </div>
         </div>
 
 		    <div class="collapse navbar-collapse" id="menu">
