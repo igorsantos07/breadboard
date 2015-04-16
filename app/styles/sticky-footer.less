@@ -1,0 +1,30 @@
+// Originally from https://github.com/davihoelz/stickyfooter-verticalcenter
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  & > div {
+    height: 100%;
+  }
+}
+
+.page-container {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  height: auto\9; /* IE 8 Hack */
+  min-height: 100%;
+  position: relative;
+}
+
+header + .container {
+  display: table-row;
+  height: 100%;
+}
+
+header, footer {
+  display: table-row;
+  height: 1px;
+}
