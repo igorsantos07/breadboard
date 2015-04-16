@@ -51,6 +51,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 * [ember.js](http://emberjs.com)
 * [ember-cli](http://www.ember-cli.com)
 * [CoffeeScript](http://www.coffeescript.org)
+* [Bootswatch Sandstone theme](https://bootswatch.com/sandstone)
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)

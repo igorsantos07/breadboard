@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
 
 ApplicationController = Ember.Controller.extend
-  valid: 5
-  invalid: 3
-  total: 17
+  valid: 123
+  invalid: 123
+  total: 123
 
 `export default ApplicationController`
