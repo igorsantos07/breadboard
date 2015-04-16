@@ -2,6 +2,11 @@
 
 Webapp version of Javelin's Experiment Board.
 
+## Project links
+
+- [ProtoBoard official version](http://protoboard.igorsantos.com.br)
+- [Project's HuBoard](https://huboard.com/igorsantos07/protoboard#/)
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
