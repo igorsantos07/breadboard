@@ -1,12 +1,14 @@
 {{!
-  @param string ID        modal's id property. Can be a template
-  @param string title     modal's title. Can be a template
-  @param bool   small     If the modal is of `modal-sm` class
-  @param bool   large     If the modal is of `modal-lg` class
-  @param bool   no-cancel If true, will not display a cancel button
-  @param string cancel    Text for the cancel button. Defaults to "Cancel"
-  @param string ok        Text for the ok button. Defaults to "Ok"
-  @param object options   You can include additional properties to be interpolated in templates
+  @param string ID           modal's id property. Can be a template
+  @param string title        modal's title. Can be a template
+  @param bool   small        If the modal is of `modal-sm` class
+  @param bool   large        If the modal is of `modal-lg` class
+  @param bool   no-cancel    If true, will not display a cancel button
+  @param string cancel       Text for the cancel button. Defaults to "Cancel"
+  @param string cancel-type  Bootstrap type for the Cancel button. Defaults to "default" (btn-default)
+  @param string ok           Text for the ok button. Defaults to "Ok"
+  @param string ok-type      Bootstrap type for the Ok button. Defaults to "primary" (btn-primary)
+  @param object options      You can include additional properties to be interpolated in templates
 }}
 
 <div class="modal fade" id="{{template ID name=name}}">
@@ -20,12 +22,12 @@
           {{yield}}
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">
+				<button type="button" class="btn btn-{{if cancel-type cancel-type 'default'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}" data-dismiss="modal">
             {{#unless no-cancel}}
               {{if cancel cancel "Cancel"}}
             {{/unless}}
         </button>
-				<button type="button" class="btn btn-primary">
+				<button type="button" class="btn btn-{{if ok-type ok-type 'primary'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}">
           {{if ok ok "Ok"}}
         </button>
 			</div>
