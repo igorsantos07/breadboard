@@ -8,6 +8,10 @@ IndexRoute = Ember.Route.extend
       solutions: data.filterProperty 'type', 'solution'
       risks: data.filterProperty 'type', 'risk'
       hypotheses: @store.find 'hypothesis'
-      new: { }
+      new:
+        customer: @store.createRecord 'item', type: 'customer'
+        problem:  @store.createRecord 'item', type: 'problem'
+        solution: @store.createRecord 'item', type: 'solution'
+        risk:     @store.createRecord 'item', type: 'risk'
 
 `export default IndexRoute`

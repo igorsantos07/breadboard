@@ -3,10 +3,10 @@
 		<div class="col-lg-7 col-md-12" id="items">
 
       <div class="row">
-        {{item-list title="Customers" singular="Customer" items=model.customers}}
-        {{item-list title="Problems"  singular="Problem"  items=model.problems}}
-        {{item-list title="Solutions" singular="Solution" items=model.solutions}}
-        {{item-list title="Risks"     singular="Risk"     items=model.risks}}
+        {{view "item/list" title="Customer" new=model.new.customer items=model.customers}}
+        {{view "item/list" title="Problem"  new=model.new.problem  items=model.problems}}
+        {{view "item/list" title="Solution" new=model.new.solution items=model.solutions}}
+        {{view "item/list" title="Risk"     new=model.new.risk     items=model.risks}}
       </div>
 
     </div>

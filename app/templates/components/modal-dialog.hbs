@@ -12,7 +12,7 @@
 }}
 
 <div class="modal fade" id="{{template ID name=name}}">
-    <div class="modal-dialog {{if small 'modal-sm'}}{{if large 'modal-lg'}}">
+  <div class="modal-dialog {{if small 'modal-sm'}}{{if large 'modal-lg'}}">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -27,7 +27,8 @@
               {{if cancel cancel "Cancel"}}
             {{/unless}}
         </button>
-				<button type="button" class="btn btn-{{if ok-type ok-type 'primary'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}">
+				<button type="button" {{action 'save' 'addItem'}}
+				        class="btn btn-{{if ok-type ok-type 'primary'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}">
           {{if ok ok "Ok"}}
         </button>
 			</div>
