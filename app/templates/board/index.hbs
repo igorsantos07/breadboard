@@ -1,0 +1,33 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-7 col-md-12" id="items">
+
+      <div class="row">
+        {{view "item/list" title="Customer" new=model.new.customer items=model.customers}}
+        {{view "item/list" title="Problem"  new=model.new.problem  items=model.problems}}
+        {{view "item/list" title="Solution" new=model.new.solution items=model.solutions}}
+        {{view "item/list" title="Risk"     new=model.new.risk     items=model.risks}}
+      </div>
+
+    </div>
+
+		<div class="col-lg-5 col-md-12" id="hypothesis">
+
+      <table class="table table-bordered table-striped table-hover" style="width: 100%">
+        <thead>
+          <tr>
+            <th>Hypothesis</th>
+            <th>Method</th>
+            <th>Criterion</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each hyp in model.hypotheses}}
+            {{hypothesis-block hyp=hyp}}
+          {{/each}}
+        </tbody>
+      </table>
+
+    </div>
+	</div>
+</div>
