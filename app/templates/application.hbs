@@ -9,18 +9,22 @@
 			    </button>
           <div class="navbar-brand">
             {{#link-to 'index'}}ProtoBoard{{/link-to}}
-            <small>[
-              <span class="text-success">{{valid}}</span> /
-              <span class="text-danger">{{invalid}}</span> /
-              <span class="text-info">{{total}}</span>
-              <span class="text">hypothesis</span>
-            ]</small>
+            {{#if board}}
+              <small>[
+                <span class="text-success">{{valid}}</span> /
+                <span class="text-danger">{{invalid}}</span> /
+                <span class="text-info">{{total}}</span>
+                <span class="text">hypotheses</span>
+              ]</small>
+            {{/if}}
           </div>
         </div>
 
 		    <div class="collapse navbar-collapse" id="menu">
 			    <ul class="nav navbar-nav">
-				    <li class="active"><a href="#">Login <span class="sr-only">(current)</span></a></li>
+            {{#unless logged}}
+				      <li class="active"><a href="#">Login <span class="sr-only">(current)</span></a></li>
+            {{/unless}}
 			    </ul>
 		    </div>
 	    </div>
