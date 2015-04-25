@@ -1,11 +1,9 @@
-`import DS from 'ember-data'`
+`import ParseModel from './parse-model'`
 
-Item = DS.Model.extend
+Item = ParseModel.extend
   type:        DS.attr 'string'
   title:       DS.attr 'string'
   description: DS.attr 'string'
-  createdAt:   DS.attr 'date'
-  updatedAt:   DS.attr 'date'
 #  hypotheses:  DS.hasMany 'hypothesis', async: true
 
 `export default Item`

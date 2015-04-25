@@ -1,6 +1,6 @@
-`import DS from 'ember-data'`
+`import ParseModel from './parse-model'`
 
-Hypothesis = DS.Model.extend
+Hypothesis = ParseModel.extend
   customer:          DS.belongsTo 'item', async: true
   problem:           DS.belongsTo 'item', async: true
   solution:          DS.belongsTo 'item', async: true
@@ -9,7 +9,8 @@ Hypothesis = DS.Model.extend
   criterion_total:   DS.attr 'number'
   criterion_valid:   DS.attr 'number'
   criterion_invalid: DS.attr 'number'
-  status:            DS.attr 'boolean', defaultValue: null
+  ## -1 = invalid; 0 = unfinished validation; 1 = valid!
+  status:            DS.attr 'number', defaultValue: 0
   text:              DS.attr 'string'
 
   defaultText: (->
