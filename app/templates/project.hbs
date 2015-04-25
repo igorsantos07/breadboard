@@ -1,32 +1,23 @@
 <h2>Project's list</h2>
+<a {{action 'new'}}>New project</a>
 
 <ul>
-	<li>
-    Project 1
-		<ul>
-			<li>Client 1</li>
-			<li>Client 2</li>
-		</ul>
-	</li>
-	<li>
-	  Project 2
-		<ul>
-			<li>Client 1</li>
-		</ul>
-	</li>
-	<li>
-	  Project 3
-		<ul>
-      <li>Client 1</li>
-      <li>Client 2</li>
-      <li>Client 3</li>
-		</ul>
-	</li>
-	<li>
-	  Project 4
-		<ul>
-			<li>Client 1</li>
-			<li>Client 2</li>
-		</ul>
-	</li>
+    {{#each project in model itemController='projectItem'}}
+      {{#with project.model as project}}
+        <li>
+          {{project.name}}
+          <ul>
+              {{#each board in project.boards}}
+                <li>{{board.name}}</li>
+              {{else}}
+                <li><i>No boards yet</i></li>
+              {{/each}}
+          </ul>
+        </li>
+      {{/with}}
+    {{else}}
+      <li>No projects yet... Create one!</li>
+    {{/each}}
 </ul>
+
+{{outlet}}
