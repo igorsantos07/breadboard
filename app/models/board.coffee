@@ -1,10 +1,10 @@
-`import ParseModel from './parse-model'`
+`import ParseModel from './_parse-model'`
 
 Board = ParseModel.extend
   name:        DS.attr 'string'
-  hyp_valid:   DS.attr 'number'
-  hyp_invalid: DS.attr 'number'
-  hyp_total:   DS.attr 'number'
+  hyp_valid:   DS.attr 'number', defaultValue: 0
+  hyp_invalid: DS.attr 'number', defaultValue: 0
+  hyp_total:   DS.attr 'number', defaultValue: 0
   project:     DS.belongsTo 'project'
 
 `export default Board`

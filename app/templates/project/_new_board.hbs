@@ -17,5 +17,7 @@
 </form>
 
 {{#unless isAddingBoard}}
-	<a href="#" {{action 'toggleNewBoard' project}}>Add {{#unless project.boards.length}}the first{{/unless}} board</a>
+	<a href="#" {{action 'toggleNewBoard' project}}>
+      Add {{#if project.boards.length}}another{{else}}the first{{/if}} board
+  </a>
 {{/unless}}
