@@ -9,4 +9,8 @@ ProjectView = Ember.View.extend
       'hide.bs.modal': =>
         @modal.removeClass 'has-error'
 
+      $('input[name=project-name]').on 'keyup', (e)->
+        if (e.keyCode == 27) #ESC
+          $(this).parents('.project-panel').removeClass('editing')
+
 `export default ProjectView`
