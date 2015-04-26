@@ -1,23 +1,81 @@
-<h2>Project's list</h2>
-<a {{action 'new'}}>New project</a>
+<h2>
+    Project's list
+    <small><a href="#new-project" data-toggle="modal">New project</a></small>
+</h2>
 
-<ul>
-    {{#each project in model itemController='projectItem'}}
-      {{#with project.model as project}}
-        <li>
-          {{project.name}}
-          <ul>
-              {{#each board in project.boards}}
-                <li>{{board.name}}</li>
+<div class="row">
+  {{#each project in model itemController='projectItem'}}
+    {{#with project.model as project}}
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="panel panel-primary project-panel">
+          <div class="panel-heading"><h3 class="panel-title">{{project.name}}</h3></div>
+
+          <ul class="list-group">
+            {{#each board in project.boards}}
+              <li class="list-group-item">
+                {{board.name}}
+                <div class="pull-right">
+                  <span class="label label-info">10</span>
+                  <span class="label label-success">4</span>
+                  <span class="label label-warning">3</span>
+                </div>
+              </li>
+            {{/each}}
+
+            <li class="list-group-item">
+              {{#if isAddingBoard}}
+                <form class="form">
+                  <div class="form-group">
+                    <label for="" class="sr-only">Subject</label>
+                      {{input type='text' class='form-control input-sm' placeholder="What's the project about?"
+                      value=newBoardName action='createBoard'}}
+                  </div>
+
+                  <div class="form-group btn-group">
+                    <button class="btn btn-success btn-sm" type="button" aria-label="Save" {{action 'createBoard'}}>
+                      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-danger btn-sm" type="button" aria-label="Cancel" {{action 'toggleNewBoard'}}>
+                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </form>
               {{else}}
-                <li><i>No boards yet</i></li>
-              {{/each}}
+                <a href="#" {{action 'toggleNewBoard'}}>Add {{#unless project.boards.length}}the first{{/unless}} board</a>
+              {{/if}}
+            </li>
           </ul>
-        </li>
-      {{/with}}
-    {{else}}
-      <li>No projects yet... Create one!</li>
-    {{/each}}
-</ul>
 
-{{outlet}}
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-xs-4">
+                <div class="panel panel-info text-center">
+                  <div class="panel-body">Hypotheses</div>
+                  <div class="panel-heading"><h4 class="panel-title">120</h4></div>
+                </div>
+              </div>
+
+              <div class="col-xs-4">
+                <div class="panel panel-success text-center">
+                  <div class="panel-body">Validated</div>
+                  <div class="panel-heading"><h4 class="panel-title">54</h4></div>
+                </div>
+              </div>
+
+              <div class="col-xs-4">
+                <div class="panel panel-warning text-center">
+                  <div class="panel-body">Invalidated</div>
+                  <div class="panel-heading"><h4 class="panel-title">25</h4></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/with}}
+  {{else}}
+    No projects yet... Create one!
+  {{/each}}
+</div>
+
+{{partial "project/_new"}}

@@ -1,0 +1,54 @@
+.project-panel
+  .panel-heading
+    h3, h4
+      text-transform: none
+    h3
+      font-size: 24px
+    h4
+      font-size: 16px
+
+  .list-group-item
+    padding: 10px 15px
+  form
+    display: table
+    width: 100%
+  .form-group
+    display: table-cell
+  .btn-group
+    box-sizing: content-box
+    padding-left: 15px
+    width: 65px
+
+  .panel-footer
+    text-transform: lowercase
+    .col-xs-4
+      &:first-child
+        padding-right: 0
+      &:last-child
+        padding-left: 0
+
+    .panel
+      margin-bottom: 0
+    .panel-heading
+      border-radius: 0 0 3px 3px
+      margin-bottom: -1px
+    .panel-title
+      font-weight: bold
+      line-height: 10px
+    .panel-body
+      padding: 0
+      font-size: small
+
+#new-project
+  .modal-dialog
+    // Forcing this modal, as it's way small, to stay floating
+    max-width: 300px
+    margin: 10px auto
+  label small
+    font-style: italic
+    color: #D9534F
+    opacity: 0
+    transition: opacity 0.5s
+  &.has-error label small
+    display: inline
+    opacity: 1
