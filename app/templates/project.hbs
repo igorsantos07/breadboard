@@ -1,5 +1,5 @@
 <h2>
-    Project's list
+    All projects
     <small><a href="#new-project" data-toggle="modal">New project</a></small>
 </h2>
 
@@ -8,7 +8,24 @@
     {{#with project.model as project}}
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="panel panel-primary project-panel" id="project-{{project.id}}">
-          <div class="panel-heading"><h3 class="panel-title">{{project.name}}</h3></div>
+          <div class="panel-heading">
+            <h3 class="panel-title">{{project.name}}</h3>
+
+	          <form class="form-inline">
+              {{input type='text' class='form-control input-sm' name='project-name'
+              value=project.name action='save'}}
+
+              <div class="btn-group">
+                <button class="btn btn-success btn-sm" title="Save" {{action 'save' project}}><span class="glyphicon glyphicon-ok"></span></button>
+                <button class="btn btn-danger btn-sm" title="Cancel" {{action 'edit' project}}><span class="glyphicon glyphicon-remove"></span></button>
+              </div>
+            </form>
+
+            <div class="btn-group">
+              <button class="btn btn-link" title="Edit name" {{action 'edit' project}}><span class="glyphicon glyphicon-edit"></span></button>
+              <button class="btn btn-link" title="Remove project" {{action 'remove' project}}><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+          </div>
 
           <ul class="list-group">
             {{#each board in project.boards}}
@@ -22,31 +39,14 @@
               </li>
             {{/each}}
 
-            <li class="list-group-item">{{partial "project/_new_board" isAddingBoard=isAddingBoard}}</li>
+            <li class="list-group-item">{{partial "project/_new_board"}}</li>
           </ul>
 
           <div class="panel-footer">
             <div class="row">
-              <div class="col-xs-4">
-                <div class="panel panel-info text-center">
-                  <div class="panel-body">Hypotheses</div>
-                  <div class="panel-heading"><h4 class="panel-title">{{project.hyp_total}}</h4></div>
-                </div>
-              </div>
-
-              <div class="col-xs-4">
-                <div class="panel panel-success text-center">
-                  <div class="panel-body">Validated</div>
-                  <div class="panel-heading"><h4 class="panel-title">{{project.hyp_valid}}</h4></div>
-                </div>
-              </div>
-
-              <div class="col-xs-4">
-                <div class="panel panel-warning text-center">
-                  <div class="panel-body">Invalidated</div>
-                  <div class="panel-heading"><h4 class="panel-title">{{project.hyp_invalid}}</h4></div>
-                </div>
-              </div>
+              {{hyp-counter title='Hypotheses'  type='info'    value=project.hyp_total}}
+              {{hyp-counter title='Validated'   type='success' value=project.hyp_valid}}
+              {{hyp-counter title='Invalidated' type='warning' value=project.hyp_invalid}}
             </div>
           </div>
         </div>
