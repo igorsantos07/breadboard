@@ -7,7 +7,7 @@
   {{#each project in model itemController='projectItem'}}
     {{#with project.model as project}}
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="panel panel-primary project-panel">
+        <div class="panel panel-primary project-panel" id="project-{{project.id}}">
           <div class="panel-heading"><h3 class="panel-title">{{project.name}}</h3></div>
 
           <ul class="list-group">
@@ -22,28 +22,7 @@
               </li>
             {{/each}}
 
-            <li class="list-group-item">
-              {{#if isAddingBoard}}
-                <form class="form">
-                  <div class="form-group">
-                    <label for="" class="sr-only">Subject</label>
-                      {{input type='text' class='form-control input-sm' placeholder="What's the project about?"
-                      value=newBoardName action='createBoard'}}
-                  </div>
-
-                  <div class="form-group btn-group">
-                    <button class="btn btn-success btn-sm" type="button" aria-label="Save" {{action 'createBoard'}}>
-                      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    </button>
-                    <button class="btn btn-danger btn-sm" type="button" aria-label="Cancel" {{action 'toggleNewBoard'}}>
-                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                  </div>
-                </form>
-              {{else}}
-                <a href="#" {{action 'toggleNewBoard'}}>Add {{#unless project.boards.length}}the first{{/unless}} board</a>
-              {{/if}}
-            </li>
+            <li class="list-group-item">{{partial "project/_new_board" isAddingBoard=isAddingBoard}}</li>
           </ul>
 
           <div class="panel-footer">

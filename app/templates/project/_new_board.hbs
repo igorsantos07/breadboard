@@ -1,0 +1,21 @@
+{{! we are not using a Handlebars conditional here as it would not enable us to focus on the field after the block appears}}
+<form class="form hidden">
+	<div class="form-group">
+		<label for="" class="sr-only">Subject</label>
+      {{input type='text' class='form-control input-sm' placeholder="What's this board about?"
+      name='new-board' value=newBoardName action='createBoard'}}
+	</div>
+
+	<div class="form-group btn-group">
+		<button class="btn btn-success btn-sm" type="button" {{action 'createBoard'}}>
+			<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save
+		</button>
+		<button class="btn btn-danger btn-sm" type="button" aria-label="Cancel" {{action 'toggleNewBoard'}}>
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		</button>
+	</div>
+</form>
+
+{{#unless isAddingBoard}}
+	<a href="#" {{action 'toggleNewBoard' project}}>Add {{#unless project.boards.length}}the first{{/unless}} board</a>
+{{/unless}}

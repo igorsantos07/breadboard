@@ -12,12 +12,14 @@
   form
     display: table
     width: 100%
+    &.hidden //workaround to be able to focus on field instantly
+      display: none
   .form-group
     display: table-cell
   .btn-group
     box-sizing: content-box
     padding-left: 15px
-    width: 65px
+    width: 92px
 
   .panel-footer
     text-transform: lowercase
