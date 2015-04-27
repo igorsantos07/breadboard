@@ -1,4 +1,4 @@
-`import ParseModel from './_parse-model'`
+`import ParseModel from './-parse-model'`
 
 Board = ParseModel.extend
   name:        DS.attr 'string'

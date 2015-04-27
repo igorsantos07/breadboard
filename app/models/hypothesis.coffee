@@ -1,4 +1,4 @@
-`import ParseModel from './_parse-model'`
+`import ParseModel from './-parse-model'`
 
 Hypothesis = ParseModel.extend
   customer:          DS.belongsTo 'item', async: true
