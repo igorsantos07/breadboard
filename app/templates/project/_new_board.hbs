@@ -1,23 +1,23 @@
 {{! we are not using a Handlebars conditional here as it would not enable us to focus on the field after the block appears}}
-<form class="form {{if isAddingBoard '' 'hidden'}}" {{action 'create' project on='submit'}}>
+<form class="form hidden" {{action 'createBoard' target='view' on='submit'}}>
 	<div class="form-group">
 		<label for="" class="sr-only">Subject</label>
       {{input type='text' class='form-control input-sm' placeholder="What's this board about?"
-        name='new-board' value=newBoardName}}
+        name='new-board' value=view.newBoardName}}
 	</div>
 
 	<div class="form-group btn-group">
-		<button class="btn btn-success btn-sm" type="button" {{action 'create' project}}>
+		<button class="btn btn-success btn-sm" type="button" {{action 'createBoard' target='view'}}>
 			<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save
 		</button>
-		<button class="btn btn-danger btn-sm" type="button" title="Cancel" {{action 'new' project}}>
+		<button class="btn btn-danger btn-sm" type="button" title="Cancel" {{action 'newBoard' target='view'}}>
 			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 		</button>
 	</div>
 </form>
 
-{{#unless isAddingBoard}}
-	<a href="#" {{action 'new' project}}>
+{{#unless view.isAddingBoard}}
+	<a href="#" {{action 'newBoard' target='view'}}>
       Add {{#if project.boards.length}}another{{else}}the first{{/if}} board
   </a>
 {{/unless}}

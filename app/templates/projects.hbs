@@ -1,0 +1,14 @@
+<h2>
+    All projects
+    <small><a href="#new-project" data-toggle="modal">New project</a></small>
+</h2>
+
+<div class="row">
+  {{#if model}} {{! not using emptyViewClass for now since it's contents are way to simple }}
+    {{each project in model itemViewClass='project/index'}}
+  {{else}}
+    No projects yet... Create one!
+  {{/if}}
+</div>
+
+{{partial "project/_new"}}
