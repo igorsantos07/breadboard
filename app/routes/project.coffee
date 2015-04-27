@@ -2,6 +2,6 @@
 
 ProjectRoute = Ember.Route.extend
   model: ->
-    @store.findAll 'project'
+    @store.find 'project', order: '-updatedAt'
 
 `export default ProjectRoute`
