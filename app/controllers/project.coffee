@@ -7,11 +7,8 @@ ProjectController = Ember.Controller.extend
     create: ->
       @modal = $('#new-project') unless @modal
       name   = @get('newProjectName').trim()
-      if name
-        @modal.removeClass 'has-error'
-      else
-        @modal.addClass 'has-error'
-        return false
+      @modal.toggleClass 'has-error', name
+      return false unless name
       @store.createRecord('project', name: name).save()
       @modal.modal 'hide'
       @set 'newProjectName', ''
@@ -28,7 +25,8 @@ ProjectController = Ember.Controller.extend
       project.save()
 
     remove: (project)->
-      if (window.confirm("Are you sure you want to delete the project \"#{project.get('name')}\" and all its boards?"))
+      if (window.confirm("Are you sure you want to delete the '+
+        'project \"#{project.get('name')}\" and all its boards?"))
         project.destroyRecord()
 
 `export default ProjectController`
