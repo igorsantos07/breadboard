@@ -4,14 +4,24 @@ ProjectItemController = Ember.Controller.extend
   isAddingBoard: false
   newBoardName: ''
 
+  form: (project)->
+    $("#project-#{project.id} .form")
+
   actions:
-    toggleNewBoard: (project)->
-      @set 'isAddingBoard', !@get 'isAddingBoard'
-      if @get 'isAddingBoard'
-        #not using simple template conditional as it breaks field focus
-        board_form = $("#project-#{project.id} form")
-        board_form.removeClass('hidden')
-        board_form.find('input[name=new-board]').focus()
+    new: (project)->
+      @toggleProperty 'isAddingBoard'
+      @form(project).find('input[name=new-board]').focus() if @isAddingBoard
+
+    create: (project)->
+      form = @form project
+      name = @get('newBoardName').trim()
+      form.toggleClass 'has-error', !name
+      return false unless name
+      board = @store.createRecord 'board', name: @newBoardName, project: project
+      board.save().then ->
+        project.save()
+      @set 'isAddingBoard', false
+      @set 'newBoardName', ''
 
 
 `export default ProjectItemController`
