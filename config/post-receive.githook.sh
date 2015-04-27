@@ -1,9 +1,8 @@
 #!/bin/sh
 echo "========= LET THE PARTY BEGIN =========="
-GIT_WORK_TREE=/var/www/protoboard git checkout -f
 cd /var/www/protoboard
+git pull origin master
 echo "========= UPDATING SUBMODULES =========="
-git submodule init
 git submodule update
 echo "=========== CHECKOUT IS DONE ==========="
 npm install
@@ -12,3 +11,4 @@ bower install --allow-root
 echo "=========== BOWER IS UPDATED ==========="
 ember build -prod
 echo "========== IT'S ALIIIIIIVE!!! =========="
+
