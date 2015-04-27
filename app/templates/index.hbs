@@ -5,7 +5,9 @@
     }
     .jumbotron .btn-lg {
         font-size: 130%;
-        padding: 25px 50px;
+        width: 100%;
+        max-width: 250px;
+        padding: 25px 0;
     }
 </style>
 
@@ -21,8 +23,8 @@
 	</p>
 
   <div class="container">
-    <div class="row">
-	    <div class="col-xs-6 text-right">
+    <div class="row text-center">
+	    <div class="col-xs-6">
           {{link-to 'Sign up' 'account.sign-up' class='btn btn-success btn-lg'}}
       </div>
 	    <div class="col-xs-6">
