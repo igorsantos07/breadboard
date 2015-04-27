@@ -40,7 +40,7 @@
 
   .list-group-item
     padding: 10px 15px
-    form
+    .form
       display: table
       width: 100%
     .form-group
@@ -73,7 +73,9 @@
       h4
         font-weight: 500
         font-size: small
-        margin: 5px
+        margin: 5px 0
+        @media screen and (min-width: 1200px)
+          font-weight: normal
 
 #new-project
   .modal-dialog
