@@ -1,6 +1,7 @@
 # compiled output
 /dist
 /tmp
+/parse-app
 
 # dependencies
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
