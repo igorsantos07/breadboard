@@ -15,7 +15,6 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance when it is created
       applicationId : '9r3cV6ySRli37PHfU9IAqRryEgp3qoJyLjOvJNYq',
       restApiId     : '4jrhTSgtjo8dWviaBj6FyTrnzKFnOqcQXt5xsCti',
-      javascriptId  : 'OC6XBtyJmv3zVSr61r2Vhyz3uZlANxpBUOIQECuj'
     },
 
     contentSecurityPolicy: {
@@ -49,7 +48,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     var prod = require('./prod/prod.js');
-    for (var key in prod) {
+    for (var key in prod.APP) {
       ENV.APP[key] = prod.APP[key];
     }
   }
