@@ -45,10 +45,17 @@
       width: 100%
     .form-group
       display: table-cell
+      &.btn-group
+        box-sizing: content-box
+        padding-left: 15px
+        width: 92px
     .btn-group
-      box-sizing: content-box
-      padding-left: 15px
-      width: 92px
+      .btn
+        line-height: 21px
+      + .label
+        margin-left: 10px
+    .label
+      padding: .4em .7em
 
   .panel-footer
     text-transform: lowercase
