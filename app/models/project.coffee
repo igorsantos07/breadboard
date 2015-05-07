@@ -7,4 +7,7 @@ Project = ParseModel.extend
   hyp_invalid: DS.attr 'number', defaultValue: 0
   hyp_total:   DS.attr 'number', defaultValue: 0
 
+  didDelete: ->
+    @get('boards').then (boards)-> boards.forEach (b)-> b.destroyRecord()
+
 `export default Project`
