@@ -1,5 +1,43 @@
+$default = #3E3F3A
+$primary = #325D88
+$light   = #BBBBBB
+$success = #93C54B
+$info    = #29ABE0
+$warning = #F47C3C
+$danger  = #D9534F
+
+
 .btn-light
   background-color: #BBB
   color: white
   &:hover
     background-color: #AAA
+
+.btn-group.btn-group-split
+  border: 1px solid $default
+  border-radius: 3px
+  &.btn-default
+    border-color: $default
+    background-color: lighten($default, 40%)
+  &.btn-primary
+    border-color: $primary
+    background-color: lighten($primary, 40%)
+  &.btn-light
+    border-color: $light
+    background-color: lighten($light, 40%)
+  &.btn-success
+    border-color: $success
+    background-color: lighten($success, 40%)
+  &.btn-info
+    border-color: $info
+    background-color: lighten($info, 40%)
+  &.btn-warning
+    border-color: $warning
+    background-color: lighten($warning, 40%)
+  &.btn-danger
+    border-color: $danger
+    background-color: lighten($danger, 40%)
+  .btn
+    margin: -1px
+    &:not(:last-child)
+      margin-right: 2px
