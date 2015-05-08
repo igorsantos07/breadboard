@@ -9,8 +9,14 @@
 			    </button>
           <div class="navbar-brand">
             {{#link-to 'index'}}
-              <div id="logo"><img src="img/logo.png"></div> ProtoBoard
+              <div id="logo"><img src="img/logo.png"></div>
+              {{#unless board_name}} ProtoBoard{{/unless}}
             {{/link-to}}
+            {{#if board_name}}
+              <span id="project-name">{{project_name}}</span> /
+              <span id="board-name">{{board_name}}</span>
+            {{/if}}
+
             {{#if board}}
               <small>[
                 <span class="text-success">{{valid}}</span> /
