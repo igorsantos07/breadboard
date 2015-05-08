@@ -8,7 +8,9 @@
 				    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 			    </button>
           <div class="navbar-brand">
-            {{#link-to 'index'}}ProtoBoard{{/link-to}}
+            {{#link-to 'index'}}
+              <div id="logo"><img src="img/logo.png"></div> ProtoBoard
+            {{/link-to}}
             {{#if board}}
               <small>[
                 <span class="text-success">{{valid}}</span> /
