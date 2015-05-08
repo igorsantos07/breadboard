@@ -7,4 +7,7 @@ Board = ParseModel.extend
   hyp_total:   DS.attr 'number', defaultValue: 0
   project:     DS.belongsTo 'project', async: true, inverse: 'boards'
 
+  name_id: (-> "#{@get('name')}-#{@get('id')}").property('name', 'id')
+
+
 `export default Board`

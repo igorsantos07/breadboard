@@ -13,7 +13,7 @@ routing = Router.map ->
     @route 'billing'
     @route 'plans'
   @route 'projects'
-  @route 'board', path: '/:project_name-:board_name-:board_id', ->
+  @route 'board', path: '/:project_name/:board_name_id', ->
     @route 'item', ->
       @route 'new'
       @route 'edit'
