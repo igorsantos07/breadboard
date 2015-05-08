@@ -1,10 +1,13 @@
 <li class="list-group-item">
-  {{board.name}}
+
+  {{link-to board.name 'board' board.project.name board.name_id}}
+
 	<div class="pull-right">
 	  <div class="btn-group btn-group-split btn-light">
-		  <button class="btn btn-xs btn-light" title="Edit board name" {{action 'edit' target='view'}}><span class="glyphicon glyphicon-edit"></span></button>
+		  <button class="btn btn-xs btn-light disabled" title="Edit board name" {{action 'edit' target='view'}}><span class="glyphicon glyphicon-edit"></span></button>
 		  <button class="btn btn-xs btn-light" title="Remove board" {{action 'remove' target='view'}}><span class="glyphicon glyphicon-remove"></span></button>
 	  </div>
+
 		<span class="label label-info">{{board.hyp_total}}</span>
 		<span class="label label-success">{{board.hyp_valid}}</span>
 		<span class="label label-warning">{{board.hyp_invalid}}</span>
