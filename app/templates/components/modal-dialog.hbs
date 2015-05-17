@@ -1,5 +1,5 @@
 {{!
-  @param string ID           modal's id property
+  @param string modal-id     modal's id property
   @param string title        modal's title
   @param bool   small        If the modal is of `modal-sm` class
   @param bool   large        If the modal is of `modal-lg` class
@@ -10,7 +10,7 @@
   @param string ok-type      Bootstrap type for the Ok button. Defaults to "primary" (btn-primary)
 }}
 
-<div class="modal fade" id="{{ID}}">
+<div class="modal fade" id="{{modal-id}}">
   <div class="modal-dialog {{if small 'modal-sm'}}{{if large 'modal-lg'}}">
     <div class="modal-content">
       <div class="modal-header">
