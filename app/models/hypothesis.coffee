@@ -13,17 +13,12 @@ Hypothesis = ParseModel.extend
   status:            DS.attr 'number', defaultValue: 0
   text:              DS.attr 'string'
 
-  defaultText: (->
+  defaultText: Ember.computed 'customer', 'problem', 'solution', 'risk', ->
     text = @get('customer').title + 'pode' + @get('problem').title
     if (solution = @get('solution'))
       text += '. Resolve com' + solution.title
     if (risk = @get('risk'))
-      if (solution)
-        text += ', mas pode' + risk.title
-      else
-        text += 'E talvez possa ' + risk.title
-
+      text += (if solution then ', mas pode ' else 'E talvez possa ') + risk.title
     return text
-  ).property 'customer', 'problem', 'solution', 'risk'
 
 `export default Hypothesis`
