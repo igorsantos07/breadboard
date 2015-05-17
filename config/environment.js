@@ -12,6 +12,7 @@ module.exports = function(environment) {
     },
 
     APP: {
+      DEPRECATED_AS_DEBUG: true,
       // Here you can pass flags/options to your application instance when it is created
       applicationId : '9r3cV6ySRli37PHfU9IAqRryEgp3qoJyLjOvJNYq',
       restApiId     : '4jrhTSgtjo8dWviaBj6FyTrnzKFnOqcQXt5xsCti'
