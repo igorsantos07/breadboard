@@ -3,7 +3,6 @@
 `import loadInitializers from 'ember/load-initializers'`
 
 `import config from './config/environment'`
-`import template from './helpers/template'`
 
 Ember.MODEL_FACTORY_INJECTIONS = true
 

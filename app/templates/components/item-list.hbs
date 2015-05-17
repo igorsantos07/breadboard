@@ -10,8 +10,8 @@
   {{item-block item=item}}
 {{/each}}
 
-{{#modal-dialog ID="add-{{name}}" title="New {{name}}" small=true name=view.title ok-type="success" ok="Save"
-confirmAction='addItem'}}
+<modal-dialog ID="add-{{name}}" title="New {{name}}" small=true name=view.title ok-type="success" ok="Save"
+confirmAction='addItem'>
   {{input type="hidden" name="type" value=view.new.type}}
   <div class="form-group">
 	  <label for="add-{{view.singular}}-title">Title</label>
@@ -22,4 +22,4 @@ confirmAction='addItem'}}
 	  <label for="add-{{view.singular}}-title">Description</label>
     {{textarea class="form-control" name="description" value=view.new.description}}
   </div>
-{{/modal-dialog}}
+</modal-dialog>

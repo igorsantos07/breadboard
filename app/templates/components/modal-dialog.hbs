@@ -1,6 +1,6 @@
 {{!
-  @param string ID           modal's id property. Can be a template
-  @param string title        modal's title. Can be a template
+  @param string ID           modal's id property
+  @param string title        modal's title
   @param bool   small        If the modal is of `modal-sm` class
   @param bool   large        If the modal is of `modal-lg` class
   @param bool   no-cancel    If true, will not display a cancel button
@@ -8,30 +8,29 @@
   @param string cancel-type  Bootstrap type for the Cancel button. Defaults to "default" (btn-default)
   @param string ok           Text for the ok button. Defaults to "Ok"
   @param string ok-type      Bootstrap type for the Ok button. Defaults to "primary" (btn-primary)
-  @param object options      You can include additional properties to be interpolated in templates
 }}
 
-<div class="modal fade" id="{{template ID name=name}}">
-	<div class="modal-dialog {{if small 'modal-sm'}}{{if large 'modal-lg'}}">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">{{template title name=name}}</h4>
-			</div>
-			<div class="modal-body">
-					{{yield}}
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-{{if cancel-type cancel-type 'default'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}" data-dismiss="modal">
-						{{#unless no-cancel}}
-							{{if cancel cancel "Cancel"}}
-						{{/unless}}
-				</button>
-				<button type="button" {{action 'ok' confirmAction}}
-								class="btn btn-{{if ok-type ok-type 'primary'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}">
-					{{if ok ok "Ok"}}
-				</button>
-			</div>
-		</div>
-	</div>
+<div class="modal fade" id="{{ID}}">
+  <div class="modal-dialog {{if small 'modal-sm'}}{{if large 'modal-lg'}}">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{title}}</h4>
+      </div>
+      <div class="modal-body">
+          {{yield}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-{{if cancel-type cancel-type 'default'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}" data-dismiss="modal">
+            {{#unless no-cancel}}
+              {{if cancel cancel "Cancel"}}
+            {{/unless}}
+        </button>
+        <button type="button" {{action 'ok'}}
+                class="btn btn-{{if ok-type ok-type 'primary'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}">
+          {{if ok ok "Ok"}}
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
