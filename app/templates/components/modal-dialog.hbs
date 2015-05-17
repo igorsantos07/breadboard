@@ -1,4 +1,5 @@
 {{!
+  TODO: DEPRECATED IN FAVOUR OF templates/board/item/new.hbs. REMOVE THIS
   @param string ID           modal's id property. Can be a template
   @param string title        modal's title. Can be a template
   @param bool   small        If the modal is of `modal-sm` class
@@ -27,7 +28,7 @@
               {{if cancel cancel "Cancel"}}
             {{/unless}}
         </button>
-				<button type="button" {{action 'save' 'addItem'}}
+				<button type="button" {{action 'addItem' 'type' target='view'}}
 				        class="btn btn-{{if ok-type ok-type 'primary'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}">
           {{if ok ok "Ok"}}
         </button>

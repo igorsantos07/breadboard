@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 itemListView = Ember.View.extend
-  templateName: 'item/list'
+  templateName: 'board/items'
   classNames: ['item-list', 'col-md-3', 'col-sm-3', 'col-xs-6']
   plural: (-> @title + 's').property('title')
 

@@ -13,20 +13,7 @@
 
 		<div class="col-lg-5 col-md-12" id="hypothesis">
 
-      <table class="table table-bordered table-striped table-hover" style="width: 100%">
-        <thead>
-          <tr>
-            <th>Hypothesis</th>
-            <th>Method</th>
-            <th>Criterion</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each hyp in model.hypotheses}}
-            {{hypothesis-block hyp=hyp}}
-          {{/each}}
-        </tbody>
-      </table>
+        {{partial 'board/hypotheses'}}
 
     </div>
 	</div>

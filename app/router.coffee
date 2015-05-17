@@ -5,18 +5,18 @@ Router = Ember.Router.extend
   location: config.locationType
 
 routing = Router.map ->
-  @route 'account', ->
-    @route 'sign-up'
-    @route 'login'
-    @route 'details'
-    @route 'edit'
-    @route 'billing'
-    @route 'plans'
+  @route 'account', ->#TODO
+    @route 'sign-up'  #TODO
+    @route 'login'    #TODO
+    @route 'details'  #TODO
+    @route 'edit'     #TODO
+    @route 'billing'  #TODO
+    @route 'plans'    #TODO
   @route 'projects'
   @route 'board', path: '/:project_name/:board_name_id', ->
-    @route 'item', ->
-      @route 'new'
-      @route 'edit'
-      @route 'delete'
+    @route 'item', -> #TODO
+      @route 'new'    #TODO
+      @route 'edit'   #TODO
+      @route 'delete' #TODO
 
 `export default routing`
