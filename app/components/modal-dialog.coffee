@@ -2,7 +2,8 @@
 
 ModalDialogComponent = Ember.Component.extend
   actions:
-    save: (action)->
-      console.log action, this
+    ok: (action)->
+      console.log "calling sendAction for #{action}"
+      this.sendAction action
 
 `export default ModalDialogComponent`

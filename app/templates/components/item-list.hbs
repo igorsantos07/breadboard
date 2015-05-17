@@ -10,7 +10,8 @@
   {{item-block item=item}}
 {{/each}}
 
-{{#modal-dialog parentView=view ID="add-{{name}}" title="New {{name}}" small=true name=view.title ok-type="success" ok="Save"}}
+{{#modal-dialog ID="add-{{name}}" title="New {{name}}" small=true name=view.title ok-type="success" ok="Save"
+action='addItem'}}
   {{input type="hidden" name="type" value=view.new.type}}
   <div class="form-group">
 	  <label for="add-{{view.singular}}-title">Title</label>
