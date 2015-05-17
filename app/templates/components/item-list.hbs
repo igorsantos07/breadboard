@@ -11,7 +11,7 @@
 {{/each}}
 
 {{#modal-dialog ID="add-{{name}}" title="New {{name}}" small=true name=view.title ok-type="success" ok="Save"
-action='addItem'}}
+confirmAction='addItem'}}
   {{input type="hidden" name="type" value=view.new.type}}
   <div class="form-group">
 	  <label for="add-{{view.singular}}-title">Title</label>
