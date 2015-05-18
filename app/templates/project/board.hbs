@@ -1,6 +1,6 @@
 <li class="list-group-item">
 
-  {{link-to board.name 'board' board.project.name board.name_id}}
+  {{link-to name 'board' project.name name_id}}
 
 	<div class="pull-right">
 	  <div class="btn-group btn-group-split btn-light">
@@ -8,8 +8,8 @@
 		  <button class="btn btn-xs btn-light" title="Remove board" {{action 'remove' target='view'}}><span class="glyphicon glyphicon-remove"></span></button>
 	  </div>
 
-		<span class="label label-info">{{board.hyp_total}}</span>
-		<span class="label label-success">{{board.hyp_valid}}</span>
-		<span class="label label-warning">{{board.hyp_invalid}}</span>
+		<span class="label label-info">{{hyp_total}}</span>
+		<span class="label label-success">{{hyp_valid}}</span>
+		<span class="label label-warning">{{hyp_invalid}}</span>
 	</div>
 </li>
