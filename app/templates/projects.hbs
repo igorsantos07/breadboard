@@ -6,7 +6,7 @@
 </h2>
 
   {{#if model}} {{! not using emptyViewClass for now since it's contents are way to simple }}
-	  <div class="row">
+    <div class="row">
       {{each project in model itemViewClass='project/index'}}
     </div>
   {{else}}
