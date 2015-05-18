@@ -14,7 +14,7 @@ if config.APP.DEPRECATED_AS_DEBUG
       return false if test
       if already_shown.indexOf(msg) == -1
         warning = "DEPRECATION: #{msg}"
-        warning += " See: #{opt.url}" if opt.url
+        warning += " See: #{opt.url}" if opt && opt.hasOwnProperty 'url'
         console.debug warning
       already_shown.push msg
   )()
