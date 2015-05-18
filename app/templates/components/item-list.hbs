@@ -1,16 +1,16 @@
 <h2>
   {{plural}}
   <button class="btn btn-default btn-xs pull-right" type="button"
-          aria-label="Add {{name}}" data-toggle="modal" data-target="#add-{{name}}">
+          aria-label="Add {{type}}" data-toggle="modal" data-target="#add-{{type}}">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
   </button>
 </h2>
 
-{{#each item in view.items}}
+{{#each item in items}}
   {{item-block item=item}}
 {{/each}}
 
-<modal-dialog modal-id="add-{{name}}" title="New {{name}}" small=true ok-type="success" ok="Save"
+<modal-dialog modal-id="add-{{type}}" title="New {{type}}" small=true ok-type="success" ok="Save"
 confirm-action='addItem'>
   {{input type="hidden" name="type" value=new.type}}
   <div class="form-group">
