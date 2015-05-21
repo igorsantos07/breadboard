@@ -9,5 +9,7 @@ ItemListComponent = Ember.Component.extend
   actions:
     addItem: ->
       console.log arguments
+      # now we should see how to get the 'new' item here so we can save it properly
+
 
 `export default ItemListComponent`
