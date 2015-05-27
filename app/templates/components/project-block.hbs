@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{project.name}}</h3>
+
+    <form class="form-inline">
+      {{input type='text' class='form-control input-sm' name='project-name' value=project.name action='save' target='view'}}
+
+      <div class="btn-group">
+        <button class="btn btn-success btn-sm" title="Save" {{action 'save' target='view'}}><span class="glyphicon glyphicon-ok"></span></button>
+        <button class="btn btn-danger btn-sm" title="Cancel" {{action 'edit' target='view'}}><span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+    </form>
+
+    <div class="btn-group">
+      <button class="btn btn-link" title="Edit project name" {{action 'edit' target='view'}}><span class="glyphicon glyphicon-edit"></span></button>
+      <button class="btn btn-link" title="Remove project" {{action 'remove' target='view'}}><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+  </div>
+
+  <ul class="list-group">
+    {{each board in project.boards itemViewClass="project/board"}}
+    <li class="list-group-item">{{partial "project/_new_board"}}</li>
+  </ul>
+
+  <div class="panel-footer">
+    <div class="row">
+      <hyp-counter title='Hypotheses'  type='info'    value={{project.hyp_total}} />
+      <hyp-counter title='Validated'   type='success' value={{project.hyp_valid}} />
+      <hyp-counter title='Invalidated' type='warning' value={{project.hyp_invalid}} />
+    </div>
+  </div>
+</div>

@@ -1,37 +1,38 @@
-.project-panel
-  & > .panel-heading
-    display: table
-    width: 100%
-    $size = 24px
-    h3
-      display: table-cell
-      text-transform: none
-      font-size: $size
-    form
-      display: none
-      width: auto
-      height: 30px
-      margin: -4px 0 -5px -10px
+project-block
+  .panel
+    & > .panel-heading
+      display: table
+      width: 100%
+      $size = 24px
+      h3
+        display: table-cell
+        text-transform: none
+        font-size: $size
+      form
+        display: none
+        width: auto
+        height: 30px
+        margin: -4px 0 -5px -10px
+        .btn-group
+          margin-top: -10px
+          padding-left: 10px
+          width: 62px
+          box-sizing: content-box
+          .btn
+            line-height: 20px
+      input[type=text]
+        width: 200px
+        display: table-cell
+        font-size: $size
+        line-height: $size
+        background-color: alpha(white, 0.75)
+        border-width: 0
       .btn-group
-        margin-top: -10px
-        padding-left: 10px
-        width: 62px
-        box-sizing: content-box
-        .btn
-          line-height: 20px
-    input[type=text]
-      width: 200px
-      display: table-cell
-      font-size: $size
-      line-height: $size
-      background-color: alpha(white, 0.75)
-      border-width: 0
-    .btn-group
-      display: table-cell
-      width: 50px
-    .btn-link
-      color: white
-      padding: 0 7px
+        display: table-cell
+        width: 50px
+      .btn-link
+        color: white
+        padding: 0 7px
   &.editing .panel-heading
     h3
       display: none

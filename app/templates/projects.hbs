@@ -1,13 +1,15 @@
 <h2>
     All projects
-    {{#if model}}
+    {{#if model}} {{! FIXME: in which case we would not have a model here? }}
       <small><a href="#new-project" data-toggle="modal">New project</a></small>
     {{/if}}
 </h2>
 
-  {{#if model}} {{! not using emptyViewClass for now since it's contents are way to simple }}
+  {{#if model}}
     <div class="row">
-      {{each project in model itemViewClass='project/index'}}
+      {{#each model as |project|}}
+        <project-block project={{project}} />
+      {{/each}}
     </div>
   {{else}}
     <h3 class="well well-lg text-center">
