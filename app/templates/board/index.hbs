@@ -3,10 +3,10 @@
 		<div class="col-lg-7 col-md-12" id="items">
 
       <div class="row">
-        <item-list type="customer" new={{new.customer}} items={{model.customers}} />
-        <item-list type="problem"  new={{new.problem}}  items={{model.problems}} />
-        <item-list type="solution" new={{new.solution}} items={{model.solutions}} />
-        <item-list type="risk"     new={{new.risk}}     items={{model.risks}} />
+        {{item-list board=model type="customer" new=new.customer items=model.customers}}
+        {{item-list board=model type="problem"  new=new.problem  items=model.problems}}
+        {{item-list board=model type="solution" new=new.solution items=model.solutions}}
+        {{item-list board=model type="risk"     new=new.risk     items=model.risks}}
       </div>
 
     </div>
