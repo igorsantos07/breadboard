@@ -17,10 +17,13 @@
     </div>
   </div>
 
-  <ul class="list-group">
-    {{each board in project.boards itemViewClass="project/board"}}
-    <li class="list-group-item">{{partial "project/_new_board"}}</li>
-  </ul>
+  <div class="list-group">
+    {{#each project.boards as |board|}}
+      <board-line board={{board}} class="list-group-item" />
+    {{/each}}
+
+    <span class="list-group-item">{{partial "project/_new_board"}}</span>
+  </div>
 
   <div class="panel-footer">
     <div class="row">
