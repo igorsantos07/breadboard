@@ -1,7 +1,9 @@
 # compiled output
 /dist
 /tmp
-/parse-app
+# Ignoring from prod app folder that are cannot be recreated and may contain keys
+/parse-app/config
+/parse-app/public
 
 # dependencies
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
