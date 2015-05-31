@@ -14,7 +14,6 @@ ItemListComponent = Ember.Component.extend
     addItem: ->
       @getAttr('new').set 'board', @getAttr('board')
       @getAttr('new').save().then =>
-        @getAttr('board').save()
         @setAttr 'new', @get('targetObject.store').createRecord 'item', type: @getAttr('new').get('type')
       @get('modal').modal 'hide'
       @get('modal').find('input, textarea').val('')

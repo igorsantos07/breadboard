@@ -8,6 +8,9 @@ Item = ParseModel.extend
 #  hypotheses:  DS.hasMany 'hypothesis', async: true, array: true
 
   #TODO: intelligent removal of an item's hypotheses
+  didCreate: -> @get('board').then (b)-> b.save()
+  didUpdate: -> @get('board').then (b)-> b.save()
+
   didDelete: ->
     console.warn 'Should manually find each hypothesis related and remove'
 

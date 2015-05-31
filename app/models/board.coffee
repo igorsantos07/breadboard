@@ -35,6 +35,6 @@ Board = ParseModel.extend
   didDelete: ->
     @get('items').then (items)-> items.forEach (i)-> i.destroyRecord()
     @get('hypotheses').then (hyps)-> hyps.forEach (h)-> h.destroyRecord()
-    @get('project').then (proj)-> proj.save() #saving the project without this board
+    @get('project').then (proj)-> proj.save() if proj #saving the project without this board
 
 `export default Board`
