@@ -16,6 +16,7 @@ routing = Router.map ->
   @route 'account', ->
     @route 'sign-up'
     @route 'login'
+    @route 'logout'
     @route 'details'
     @route 'edit'
     @route 'billing'
