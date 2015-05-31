@@ -1,27 +1,11 @@
 <h2>
   {{plural}}
   <button class="btn btn-default btn-xs pull-right" type="button"
-          aria-label="Add {{type}}" data-toggle="modal" data-target="#add-{{type}}">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          aria-label="Add {{type}}" {{action 'addItem' type target=targetObject}}>
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
   </button>
 </h2>
 
 {{#each items key="staticKey" as |item|}}
   {{item-block item=item}}
 {{/each}}
-
-<modal-dialog modal-id="add-{{type}}" title="New {{type}}" small=true ok-type="success" ok="Save"
-confirm-action='addItem'>
-  {{input type="hidden" name="type" value=new.type}}
-  <div class="form-group">
-	  <label class="control-label">Title
-      {{input type="text" class="form-control" name="title" value=new.title}}
-    </label>
-  </div>
-
-  <div class="form-group">
-	  <label class="control-label">Description
-      {{textarea class="form-control" name="description" value=new.description}}
-    </label>
-  </div>
-</modal-dialog>

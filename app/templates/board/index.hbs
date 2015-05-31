@@ -1,17 +1,17 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-lg-7 col-md-12" id="items">
+  <div class="row">
+    <div class="col-lg-7 col-md-12" id="items">
 
       <div class="row">
-        {{item-list board=model type="customer" new=new.customer items=model.customers}}
-        {{item-list board=model type="problem"  new=new.problem  items=model.problems}}
-        {{item-list board=model type="solution" new=new.solution items=model.solutions}}
-        {{item-list board=model type="risk"     new=new.risk     items=model.risks}}
+        {{item-list board=model type="customer" items=model.customers}}
+        {{item-list board=model type="problem"  items=model.problems}}
+        {{item-list board=model type="solution" items=model.solutions}}
+        {{item-list board=model type="risk"     items=model.risks}}
       </div>
 
     </div>
 
-		<div class="col-lg-5 col-md-12" id="hypothesis">
+    <div class="col-lg-5 col-md-12" id="hypothesis">
 
       {{! TODO: turn this into a partial, or a component }}
       <table class="table table-bordered table-striped table-hover" style="width: 100%">
@@ -30,5 +30,22 @@
       </table>
 
     </div>
-	</div>
+  </div>
 </div>
+
+<modal-dialog modal-id="item-modal" title="New {{modalItem.type}}" small=true
+    ok-type="success" ok="Save" confirm-action='createItem'>
+  {{input type="hidden" name="type" value=modalItem.type}}
+
+  <div class="form-group">
+    <label class="control-label">Title
+      {{input type="text" class="form-control" name="title" value=modalItem.title}}
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Description
+      {{textarea class="form-control" name="description" value=modalItem.description}}
+    </label>
+</div>
+</modal-dialog>

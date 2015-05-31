@@ -12,25 +12,24 @@
 
 <div class="modal fade" id="{{modal-id}}">
   <div class="modal-dialog {{if small 'modal-sm'}}{{if large 'modal-lg'}}">
-    <div class="modal-content">
+    <form class="modal-content" {{action 'ok' on='submit'}}>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">{{title}}</h4>
       </div>
-      <div class="modal-body">
-          {{yield}}
-      </div>
+
+      <div class="modal-body">{{yield}}</div>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-{{if cancel-type cancel-type 'default'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}" data-dismiss="modal">
-            {{#unless no-cancel}}
-              {{if cancel cancel "Cancel"}}
-            {{/unless}}
+        <button type="button" data-dismiss="modal"
+                class="btn btn-{{if cancel-type cancel-type 'default'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}">
+          {{#unless no-cancel}} {{if cancel cancel "Cancel"}} {{/unless}}
         </button>
         <button type="button" {{action 'ok'}}
                 class="btn btn-{{if ok-type ok-type 'primary'}} {{if small 'btn-sm'}}{{if large 'btn-lg'}}">
           {{if ok ok "Ok"}}
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </div>

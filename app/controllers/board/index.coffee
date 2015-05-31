@@ -1,12 +1,18 @@
 `import Ember from 'ember'`
 
 BoardController = Ember.Controller.extend
-  itemTypes: ['customer', 'problem', 'risk', 'solution'] #TODO should move this to a static property of Item model?
+  modalItem: {}
 
-  new: Ember.computed ->
-    objects = {}
-    @itemTypes.forEach (type)=>
-      objects[type] = @store.createRecord 'item', type: type
-    return objects
+  actions:
+    ### setups the modal and opens it ###
+    addItem: (type)->
+      @set 'modalItem', @store.createRecord 'item', type: type
+      $('#item-modal').modal 'show'
+
+    ### saves the item ###
+    createItem: ->
+      @modalItem.set 'board', @model
+      @modalItem.save().then => @set 'modalItem', {}
+      $('#item-modal').modal 'hide'
 
 `export default BoardController`
