@@ -1,13 +1,13 @@
 <div class="actions btn-group btn-group-xs" role="group" aria-label="Actions">
   {{#if showDetails}}
-    <button class="btn btn-primary btn-xs edit" type="button" aria-label="Edit">
+    <button class="btn btn-primary btn-xs edit" {{action "edit"}} aria-label="Edit">
       <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
     </button>
-    <button class="btn btn-danger btn-xs remove" type="button" aria-label="Remove">
+    <button class="btn btn-danger btn-xs remove" {{action "remove"}} aria-label="Remove">
       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
     </button>
   {{/if}}
-  <button class="btn btn-default btn-xs desc" type="button" aria-label="Show description" {{action "toggleDetails"}}>
+  <button class="btn btn-default btn-xs desc" {{action "toggleDetails"}} aria-label="Show description">
     <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
   </button>
 </div>
