@@ -1,11 +1,21 @@
 /* global require, module */
+var autoprefixer = require('broccoli-autoprefixer');
+var htmlmin = require('broccoli-htmlmin');
+var cssmin  = require('broccoli-clean-css');
+var jsmin   = require('broccoli-uglify-js');
+var imgmin  = require('broccoli-imagemin');
+//apparently GZIP doesn't work out of the box; resources fail to be interpreted
+//var gzip    = require('broccoli-gzip');
 
 var funnel   = require('broccoli-funnel');
 var merge    = require('broccoli-merge-trees');
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-var autoprefixer = require('broccoli-autoprefixer');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  stylusOptions: {
+    sourceMap: false //useless? how to use Stylus sourcemaps?
+  }
+});
 
 // Use `app.import` to add additional libraries to the generated output files.
 //
@@ -33,9 +43,38 @@ var progressHelper = merge([
 
 completeTree = merge([mainTree, progressHelper]);
 
-tree = autoprefixer(completeTree, {
-  browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'], //default
-  cascade: false
-});
+var options = {
+  autoprefixer: {
+    browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'], //default
+    cascade: false
+  },
+  htmlmin: {
+    conditionals: true
+  },
+  cssmin: {},
+  jsmin: {},
+  imgmin: {
+    interlaced: true,
+    optimizationLevel: 3,
+    progressive: true,
+    lossyPNG: false
+  },
+  gzip: { extensions: ['js', 'css'] }
+};
 
-module.exports = tree;
+//TODO: optimize trees with funnel so minification won't pass by unrelated files
+//FIXME: remove useless images from build (img/outros)
+finalTree =
+  //gzip(
+    htmlmin(
+      jsmin(
+        cssmin(
+          imgmin(
+            autoprefixer(completeTree, options.autoprefixer),
+          options.imgmin),
+        options.cssmin),
+      options.jsmin),
+    options.htmlmin);
+  //options.gzip);
+
+module.exports = finalTree;
