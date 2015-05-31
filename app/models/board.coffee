@@ -23,6 +23,7 @@ Board = ParseModel.extend
   hyp_total:   DS.attr 'number', defaultValue: 0
   project:     DS.belongsTo 'project', async: true, inverse: 'boards'
   items:       DS.hasMany 'item', async: true, inverse: 'board', array: true
+  hypotheses:  DS.hasMany 'hypothesis', async: true, inverse: 'board', array: true
 
   name_id: Ember.computed 'name', 'id', -> "#{@get('name')}-#{@get('id')}"
 
@@ -30,5 +31,10 @@ Board = ParseModel.extend
   problems:   item_filter('problem')
   risks:      item_filter('risk')
   solutions:  item_filter('solution')
+
+  didDelete: ->
+    @get('items').then (items)-> items.forEach (i)-> i.destroyRecord()
+    @get('hypotheses').then (hyps)-> hyps.forEach (h)-> h.destroyRecord()
+    @get('project').then (proj)-> proj.save() #saving the project without this board
 
 `export default Board`

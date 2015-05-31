@@ -6,9 +6,7 @@ BoardLineComponent = Ember.Component.extend
     edit: -> alert('Not yet implemented. Sorry!')
 
     remove: ->
-      if (window.confirm "Are you sure you want to delete the board \"#{@attrs.board.get('name')}\"?")
-        @attrs.board.get('project').then (project)=>
-          @attrs.board.destroyRecord()
-          project.save()
+      if confirm "Are you sure you want to delete the board \"#{@getAttr('board').get('name')}\"?"
+        @attrs.board.destroyRecord()
 
 `export default BoardLineComponent`

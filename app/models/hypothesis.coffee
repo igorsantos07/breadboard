@@ -5,6 +5,7 @@ Hypothesis = ParseModel.extend
   problem:           DS.belongsTo 'item', async: true
   solution:          DS.belongsTo 'item', async: true
   risk:              DS.belongsTo 'item', async: true
+  board:             DS.belongsTo 'board', async: true
   method:            DS.attr 'string'
   criterion_total:   DS.attr 'number'
   criterion_valid:   DS.attr 'number'

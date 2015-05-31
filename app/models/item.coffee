@@ -7,4 +7,8 @@ Item = ParseModel.extend
   board:       DS.belongsTo 'board', async: true
 #  hypotheses:  DS.hasMany 'hypothesis', async: true, array: true
 
+  #TODO: intelligent removal of an item's hypotheses
+  didDelete: ->
+    console.warn 'Should manually find each hypothesis related and remove'
+
 `export default Item`
