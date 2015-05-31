@@ -1,5 +1,7 @@
 /* global require, module */
 
+var funnel   = require('broccoli-funnel');
+var merge    = require('broccoli-merge-trees');
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var autoprefixer = require('broccoli-autoprefixer');
 
@@ -21,9 +23,17 @@ app.import('bower_components/bootswatch/fonts/glyphicons-halflings-regular.woff2
 app.import('bower_components/bootswatch/fonts/glyphicons-halflings-regular.woff', {destDir: 'fonts'});
 app.import('bower_components/bootswatch/fonts/glyphicons-halflings-regular.ttf', {destDir: 'fonts'});
 app.import('bower_components/lodash/lodash.min.js');
+var mainTree = app.toTree();
 
-var tree = app.toTree();
-tree = autoprefixer(tree, {
+// Adding progress bar files separately to the tree
+var progressHelper = merge([
+  funnel('bower_components/pace', { files: ['pace.js'], destDir: 'assets/pace' }),
+  funnel('app/styles', { files: ['pace.css'], destDir: 'assets/pace' })
+]);
+
+completeTree = merge([mainTree, progressHelper]);
+
+tree = autoprefixer(completeTree, {
   browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'], //default
   cascade: false
 });
