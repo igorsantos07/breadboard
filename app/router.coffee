@@ -3,6 +3,11 @@
 
 Router = Ember.Router.extend
   location: config.locationType
+  notifyAnalytics: (->
+    ga 'send', 'pageview',
+      page: @get 'url',
+      title: @get 'url'
+  ).on 'didTransition'
 
 routing = Router.map ->
   @route 'account', ->
