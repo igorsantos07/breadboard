@@ -1,11 +1,11 @@
 <h2>
   {{plural}}
   <button class="btn btn-default btn-xs pull-right" type="button"
-          aria-label="Add {{type}}" {{action 'addItem' type target=targetObject}}>
+          aria-label="Add {{type}}" {{action 'openModal' type target=targetObject}}>
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
   </button>
 </h2>
 
 {{#each items key="staticKey" as |item|}}
-  {{item-block item=item}}
+  {{item-block item=item edit-action=(action 'openModal' item target=targetObject)}}
 {{/each}}

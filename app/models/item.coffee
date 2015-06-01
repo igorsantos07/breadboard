@@ -12,6 +12,7 @@ Item = ParseModel.extend
   didUpdate: -> @get('board').then (b)-> b.save()
 
   didDelete: ->
-    console.warn 'Should manually find each hypothesis related and remove'
+    @get('board').then (board)-> board.save()
+    console.info 'Should manually find each hypothesis related and remove'
 
 `export default Item`
