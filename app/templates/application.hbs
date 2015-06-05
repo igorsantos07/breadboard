@@ -38,6 +38,17 @@
           {{/if}}
         </ul>
       </div>
+	    <script type="text/javascript">
+          var $doc = $(document);
+          $doc.ready(function() {
+            var $menu = $('#menu');
+	          $doc.on('click.nav', '.navbar-collapse.in', function (e) {
+		          if ($(e.target).is('a')) {
+			          $menu.collapse('hide');
+		          }
+	          });
+          });
+      </script>
     </div>
   </nav>
 </header>
