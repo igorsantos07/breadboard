@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import BasicRoute from './-route'`
 
-AccountRoute = Ember.Route.extend
+AccountRoute = BasicRoute.extend
   beforeModel: ->
     console.warn 'Account stuff is not implemented yet'
     @transitionTo 'projects'

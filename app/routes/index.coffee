@@ -1,17 +1,18 @@
 `import Ember from 'ember'`
+`import BasicRoute from './-route'`
 
-IndexRoute = Ember.Route.extend
-  model: ->
-    @store.find('item').then (data)=>
-      customers: data.filterProperty 'type', 'customer'
-      problems: data.filterProperty 'type', 'problem'
-      solutions: data.filterProperty 'type', 'solution'
-      risks: data.filterProperty 'type', 'risk'
-      hypotheses: @store.find 'hypothesis'
-      new:
-        customer: @store.createRecord 'item', type: 'customer'
-        problem:  @store.createRecord 'item', type: 'problem'
-        solution: @store.createRecord 'item', type: 'solution'
-        risk:     @store.createRecord 'item', type: 'risk'
+IndexRoute = BasicRoute.extend
+  meta: ->
+    original = @_super()
+    property:
+      _.extend original.property,
+        'og:site_name': 'ProtoBoard'
+        'og:locale': 'en_US'
+#        'og:locale:alternate': [] #other languages this could be available
+        'og:type': 'website'
+        'og:url': window.location.href
+        'og:image': "#{window.location.origin}/img/logo.png"
+        'og:title': document.title
+#        'og:article:author': model.get('owner.name')
 
 `export default IndexRoute`

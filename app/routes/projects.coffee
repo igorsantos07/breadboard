@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import BasicRoute from './-route'`
 
-ProjectsRoute = Ember.Route.extend
+ProjectsRoute = BasicRoute.extend
   model: ->
     @store.find 'project', order: '-updatedAt'
 
