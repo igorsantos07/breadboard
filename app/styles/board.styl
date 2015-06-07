@@ -50,13 +50,12 @@ hypothesis-block
     font-style: italic
   .panel-footer
     padding: 0
-    table
-      width: 100%
-      color: #777
-      td
-        padding: 5px 10px
-        &.criterion
-          text-align: right
+    color: #777
+    .method, .criterion
+      padding: 5px 10px
+    @media (min-width: 768px)
+      .criterion
+        text-align: right
     p
       display: inline-block
       margin: 0 10px 0 0

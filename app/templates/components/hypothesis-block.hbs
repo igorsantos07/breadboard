@@ -13,56 +13,64 @@
   <span>{{hypothesis.risk.title}}</span>.
 </article>
 
-<footer class="panel-footer">
-  <table><tr> {{! TODO: this could be refactored in some divs }}
-    <td class="method">
-      <p title="Method" data-toggle="tooltip">
-        <span class="glyphicon glyphicon-wrench"></span>
-        {{#if hypothesis.method}}hypothesis.method{{else}}<em>Not defined</em>{{/if}}
-      </p>
+<footer class="panel-footer container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="method">
+        <p title="Method" data-toggle="tooltip">
+          <span class="glyphicon glyphicon-wrench"></span>
+          {{#if hypothesis.method}}
+            {{hypothesis.method}}
+          {{else}}
+            <em>Not defined</em>
+          {{/if}}
+        </p>
 
-      <button class="btn btn-default btn-xs" {{action "editMethod"}} aria-label="Edit method">
-        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-      </button>
-    </td>
-
-    <td class="criterion">
-      <p title="Criterion" data-toggle="tooltip">
-        <span class="glyphicon glyphicon-dashboard"></span>
-        <span class="text-success">{{hypothesis.criterion_valid}}</span> /
-        <span class="text-danger">{{hypothesis.criterion_invalid}}</span>
-        [<span class="text-primary">{{hypothesis.criterion_total}}</span>]
-      </p>
-
-      <div class="btn-group btn-group-split btn-success">
-        <button class="btn btn-success btn-xs" {{action "editMethod"}} aria-label="Edit method">
-	        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
-
-        <button class="btn btn-success btn-xs" {{action "editMethod"}} aria-label="Edit method">
-	        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+        <button class="btn btn-default btn-xs" {{action "editMethod"}} aria-label="Edit method">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
         </button>
       </div>
+    </div>
 
-	    <div class="btn-group btn-group-split btn-danger">
-        <button class="btn btn-danger btn-xs" {{action "editMethod"}} aria-label="Edit method">
-	        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
+    <div class="col-xs-12 col-sm-6">
+      <div class="criterion">
+        <p title="Criterion" data-toggle="tooltip">
+          <span class="glyphicon glyphicon-dashboard"></span>
+          <span class="text-success">{{hypothesis.criterion_valid}}</span> /
+          <span class="text-danger">{{hypothesis.criterion_invalid}}</span>
+          [<span class="text-primary">{{hypothesis.criterion_total}}</span>]
+        </p>
 
-        <button class="btn btn-danger btn-xs" {{action "editMethod"}} aria-label="Edit method">
-	        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-        </button>
+        <div class="btn-group btn-group-split btn-success">
+          <button class="btn btn-success btn-xs" {{action "editMethod"}} aria-label="Edit method">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+
+          <button class="btn btn-success btn-xs" {{action "editMethod"}} aria-label="Edit method">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="btn-group btn-group-split btn-danger">
+          <button class="btn btn-danger btn-xs" {{action "editMethod"}} aria-label="Edit method">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+
+          <button class="btn btn-danger btn-xs" {{action "editMethod"}} aria-label="Edit method">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="btn-group btn-group-split btn-primary">
+          <button class="btn btn-primary btn-xs" {{action "editMethod"}} aria-label="Edit method">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+
+          <button class="btn btn-primary btn-xs" {{action "editMethod"}} aria-label="Edit method">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
-
-	      <div class="btn-group btn-group-split btn-primary">
-        <button class="btn btn-primary btn-xs" {{action "editMethod"}} aria-label="Edit method">
-	        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
-
-        <button class="btn btn-primary btn-xs" {{action "editMethod"}} aria-label="Edit method">
-	        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-        </button>
-      </div>
-    </td>
-  </tr></table>
+    </div>
+  </div>
 </footer>
