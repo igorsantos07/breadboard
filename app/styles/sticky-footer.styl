@@ -14,6 +14,11 @@ html, body {
   height: auto\9; /* IE 8 Hack */
   min-height: 100%;
   position: relative;
+
+  & > header, & > footer {
+    display: table-row;
+    height: 1px;
+  }
 }
 
 header + section {
@@ -21,7 +26,3 @@ header + section {
   height: 100%;
 }
 
-header, footer {
-  display: table-row;
-  height: 1px;
-}

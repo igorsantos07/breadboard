@@ -6,6 +6,9 @@ $info    = #29ABE0
 $warning = #F47C3C
 $danger  = #D9534F
 
+.text-success
+  color: darken($success, 20%)
+
 .btn-light
   background-color: #BBB
   color: white
@@ -40,6 +43,10 @@ $danger  = #D9534F
     margin: -1px
     &:not(:last-child)
       margin-right: 2px
+
+.btn
+  span.glyphicon + span
+    padding-left: 5px
 
 label.control-label
   width: 100%

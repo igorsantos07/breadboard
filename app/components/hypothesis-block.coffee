@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
 hypothesisComponent = Ember.Component.extend
-  tagName: 'tr'
+  classNames: ['panel', 'panel-default']
 
 `export default hypothesisComponent`

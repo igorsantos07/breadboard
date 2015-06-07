@@ -11,7 +11,7 @@ HypothesesListComponent = Ember.Component.extend
       alert 'should open a nice modal'
 
   didInsertElement: ->
-    $('th .btn-group button').tooltip
+    $('[data-toggle=tooltip]').tooltip
       container: 'body'
 
 `export default HypothesesListComponent`
