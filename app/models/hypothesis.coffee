@@ -7,9 +7,9 @@ Hypothesis = ParseModel.extend
   risk:              DS.belongsTo 'item', async: true
   board:             DS.belongsTo 'board', async: true
   method:            DS.attr 'string'
-  criterion_total:   DS.attr 'number'
-  criterion_valid:   DS.attr 'number'
-  criterion_invalid: DS.attr 'number'
+  criterion_total:   DS.attr 'number', defaultValue: 0
+  criterion_valid:   DS.attr 'number', defaultValue: 0
+  criterion_invalid: DS.attr 'number', defaultValue: 0
   ## -1 = invalid; 0 = unfinished validation; 1 = valid!
   status:            DS.attr 'number', defaultValue: 0
   text:              DS.attr 'string'
