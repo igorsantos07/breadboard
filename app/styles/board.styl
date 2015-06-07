@@ -1,3 +1,14 @@
+.nav-tabs
+  li
+    bottom: -7px
+    &.active
+      bottom: auto
+      font-size: 16px
+
+h2
+  font-size: 21px
+  margin-top: 10px
+
 item-list
   border: 1px dashed #BBB
   border-width: 0 1px
@@ -6,11 +17,11 @@ item-list
 
   h2
     text-transform: capitalize
-    font-size: 21px
-    line-height: 18px
     min-width: 120px
-    margin-top: 10px
+    line-height: 18px
     margin-bottom: 15px
+    span.glyphicon
+      text-align: bottom
 
   .thumbnail
     background-color: #EEE
@@ -27,6 +38,10 @@ item-list
         cursor: zoom-out
     p
       margin: 0
+
+hypotheses-list
+  .nav.panel
+    margin: 10px 0
 
 hypothesis-block
   position: relative

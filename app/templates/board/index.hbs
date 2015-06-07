@@ -1,17 +1,24 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-7 col-md-12" id="items">
+<div role="tabpanel">
+  <nav>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active">
+        <a href="#items" role="tab" data-toggle="tab">Board elements</a>
+      </li>
+      <li role="presentation">
+        <a href="#hypotheses" role="tab" data-toggle="tab">Hypotheses</a>
+      </li>
+    </ul>
+  </nav>
 
-      <div class="row">
-        <item-list board={{model}} type="customer" items={{model.customers}} />
-        <item-list board={{model}} type="problem"  items={{model.problems}} />
-        <item-list board={{model}} type="solution" items={{model.solutions}} />
-        <item-list board={{model}} type="risk"     items={{model.risks}} />
-      </div>
-
+  <div class="tab-content">
+    <div id="items" role="tabpanel" class="tab-pane active">
+      <item-list board={{model}} type="customer" items={{model.customers}} />
+      <item-list board={{model}} type="problem"  items={{model.problems}} />
+      <item-list board={{model}} type="solution" items={{model.solutions}} />
+      <item-list board={{model}} type="risk"     items={{model.risks}} />
     </div>
 
-	  <hypotheses-list board={{model}} />
+    <hypotheses-list id="hypotheses" role="tabpanel" class="tab-pane" board={{model}} />
   </div>
 </div>
 
