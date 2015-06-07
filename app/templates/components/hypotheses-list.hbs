@@ -1,5 +1,8 @@
 <div class="nav panel">
-  Hypotheses
+	<button class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#filters">
+		<span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+		<span>Filter hypotheses</span>
+	</button>
 
   <div class="btn-group btn-group-split pull-right">
     <button class="btn btn-default btn-sm" {{action 'infiniteImprobabilityGenerator'}}
@@ -14,6 +17,18 @@
 	    <span>Write one</span>
     </button>
   </div>
+</div>
+
+<div class="collapse panel panel-primary panel-sm" id="filters">
+	<div class="panel-heading">Filters</div>
+  <div class="panel-body">
+    <p class="lead">
+	    <img src="/img/here-be-dragons.png" alt="HERE BE DRAGONS" width="80" style="-webkit-transform: scaleX(-1)"/>
+      <strong>HERE BE FILTERS</strong>
+	    <img src="/img/here-be-dragons.png" alt="HERE BE DRAGONS" width="80" />
+    </p>
+  </div>
+  <div class="panel-footer">Total hypotheses: 3/10</div>
 </div>
 
 {{#each board.hypotheses as |hyp|}}

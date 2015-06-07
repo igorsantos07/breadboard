@@ -13,5 +13,7 @@ HypothesesListComponent = Ember.Component.extend
   didInsertElement: ->
     $('[data-toggle=tooltip]').tooltip
       container: 'body'
+    $('#filters').on 'show.bs.collapse hide.bs.collapse', ->
+      $('[data-target=#filters]').toggleClass('active')
 
 `export default HypothesesListComponent`
