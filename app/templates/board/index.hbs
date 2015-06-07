@@ -11,25 +11,7 @@
 
     </div>
 
-    <div class="col-lg-5 col-md-12" id="hypothesis">
-
-      {{! TODO: turn this into a partial, or a component }}
-      <table class="table table-bordered table-striped table-hover" style="width: 100%">
-        <thead>
-          <tr>
-            <th>Hypothesis</th>
-            <th>Method</th>
-            <th>Criterion</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each hyp in model.hypotheses}}
-            {{hypothesis-block hyp=hyp}}
-          {{/each}}
-        </tbody>
-      </table>
-
-    </div>
+	  <hypotheses-list board={{model}} />
   </div>
 </div>
 

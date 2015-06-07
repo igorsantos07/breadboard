@@ -27,10 +27,24 @@ Board = ParseModel.extend
 
   name_id: Ember.computed 'name', 'id', -> "#{@get('name')}-#{@get('id')}"
 
-  customers:  item_filter('customer')
-  problems:   item_filter('problem')
-  risks:      item_filter('risk')
-  solutions:  item_filter('solution')
+  customers:  item_filter 'customer'
+  problems:   item_filter 'problem'
+  risks:      item_filter 'risk'
+  solutions:  item_filter 'solution'
+
+  getRandomItem: (type)->
+    list = @get(type)
+    chosen = _.random(0, list.length - 1)
+    list[chosen]
+
+  newRandomHypothesis: ->
+    @store.createRecord('hypothesis',
+      board: @
+      customer: @getRandomItem 'customers'
+      problem:  @getRandomItem 'problems'
+      solution: @getRandomItem 'solutions'
+      risk:     @getRandomItem 'risks'
+    ).save().then => @save()
 
   didDelete: ->
     @get('items').then (items)-> items.forEach (i)-> i.destroyRecord()
