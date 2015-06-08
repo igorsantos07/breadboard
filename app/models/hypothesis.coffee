@@ -10,16 +10,46 @@ Hypothesis = ParseModel.extend
   criterion_total:   DS.attr 'number', defaultValue: 0
   criterion_valid:   DS.attr 'number', defaultValue: 0
   criterion_invalid: DS.attr 'number', defaultValue: 0
-  ## -1 = invalid; 0 = unfinished validation; 1 = valid!
   status:            DS.attr 'number', defaultValue: 0
   text:              DS.attr 'string'
 
-  defaultText: Ember.computed 'customer', 'problem', 'solution', 'risk', ->
-    text = @get('customer').title + 'pode' + @get('problem').title
-    if (solution = @get('solution'))
-      text += '. Resolve com' + solution.title
-    if (risk = @get('risk'))
-      text += (if solution then ', mas pode ' else 'E talvez possa ') + risk.title
-    return text
+  STATUS:
+    invalid: -1
+    pending: 0
+    valid: 1
+
+  getStatusStr: (num)->
+    _.findKey @STATUS, (v)-> v == status
+
+  #TODO: not yet used, so not tested
+  setStatus: (status)->
+    if status != @STATUS['valid'] && status != @STATUS['invalid'] && status != @STATUS['pending']
+      throw Error('Status field must be one of Hypothesis.STATUS values')
+
+    if @get('status') != status
+      old_status = @get 'status'
+      @set 'status', status
+      @save()
+      new_status_str = @getStatusStr status
+      old_status_str = @getStatusStr old_status
+      @get('board').then (board)->
+        board.incrementProperty "hyp_#{new_status_str}" if new_status_str != 'pending'
+        board.decrementProperty "hyp_#{old_status_str}" if old_status_str != 'pending'
+        board.save()
+
+  didCreate: ->
+    @get('board').then (board)->
+      board.incrementProperty 'hyp_total'
+      board.save()
+
+  didDelete: ->
+    @get('board').then (board)=>
+      if @get('status') == @STATUS['valid']
+        board.decrementProperty 'hyp_valid'
+      else if @get('status') == @STATUS['invalid']
+        board.decrementProperty 'hyp_invalid'
+
+      board.decrementProperty 'hyp_total'
+      board.save()
 
 `export default Hypothesis`
