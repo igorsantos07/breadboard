@@ -31,6 +31,11 @@
   <div class="panel-footer">Total hypotheses: 3/10</div>
 </div>
 
-{{#each board.hypotheses as |hyp|}}
+{{#each board.hypotheses key="staticKey" as |hyp|}}
   <hypothesis-block hypothesis={{hyp}} />
+{{else}}
+  <p class="jumbotron lead text-center">
+      No hypotheses for this board yet...<br />
+      Write or generate one with the buttons above!
+  </p>
 {{/each}}

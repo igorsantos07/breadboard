@@ -7,10 +7,14 @@
 </div>
 
 <article class="panel-body">
-  <span>{{hypothesis.customer.title}}</span> pode
-  <span>{{hypothesis.problem.title}}</span>. Resolve com
-  <span>{{hypothesis.solution.title}}</span>, mas pode
-  <span>{{hypothesis.risk.title}}</span>.
+  <span>{{hypothesis.customer.title}}</span> pode <span>{{hypothesis.problem.title}}</span>.
+  {{#if hypothesis.solution}}
+    Resolve com <span>{{hypothesis.solution.title}}</span>
+  {{/if}}
+  {{#if hypothesis.risk}}
+    {{if hypothesis.solution ", mas pode" "Mas talvez possa"}}
+	  <span>{{hypothesis.risk.title}}</span>.
+  {{/if}}
 </article>
 
 <footer class="panel-footer container-fluid">
@@ -37,8 +41,8 @@
         <p title="Criterion" data-toggle="tooltip">
           <span class="glyphicon glyphicon-dashboard"></span>
           <span class="text-success">{{hypothesis.criterion_valid}}</span> /
-          <span class="text-danger">{{hypothesis.criterion_invalid}}</span>
-          [<span class="text-primary">{{hypothesis.criterion_total}}</span>]
+          <span class="text-warning">{{hypothesis.criterion_invalid}}</span>
+          [<span class="text-info">{{hypothesis.criterion_total}}</span>]
         </p>
 
         <div class="btn-group btn-group-split btn-success">
@@ -51,22 +55,22 @@
           </button>
         </div>
 
-        <div class="btn-group btn-group-split btn-danger">
-          <button class="btn btn-danger btn-xs" {{action "editMethod"}} aria-label="Edit method">
+        <div class="btn-group btn-group-split btn-warning">
+          <button class="btn btn-warning btn-xs" {{action "editMethod"}} aria-label="Edit method">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
 
-          <button class="btn btn-danger btn-xs" {{action "editMethod"}} aria-label="Edit method">
+          <button class="btn btn-warning btn-xs" {{action "editMethod"}} aria-label="Edit method">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>
         </div>
 
-        <div class="btn-group btn-group-split btn-primary">
-          <button class="btn btn-primary btn-xs" {{action "editMethod"}} aria-label="Edit method">
+        <div class="btn-group btn-group-split btn-info">
+          <button class="btn btn-info btn-xs" {{action "editMethod"}} aria-label="Edit method">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
 
-          <button class="btn btn-primary btn-xs" {{action "editMethod"}} aria-label="Edit method">
+          <button class="btn btn-info btn-xs" {{action "editMethod"}} aria-label="Edit method">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>
         </div>
