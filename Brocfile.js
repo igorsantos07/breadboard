@@ -5,7 +5,6 @@ var isPROD = (ENV == 'production');
 var autoprefixer = require('broccoli-autoprefixer');
 var htmlmin = require('broccoli-htmlmin');
 var cssmin  = require('broccoli-clean-css');
-var jsmin   = require('broccoli-uglify-js');
 var imgmin  = require('broccoli-imagemin');
 //apparently GZIP doesn't work out of the box; resources fail to be interpreted
 //var gzip    = require('broccoli-gzip');
@@ -67,9 +66,6 @@ if (isPROD) {
   finalTree = imgmin(finalTree, options.imgmin);
   //unable to compress and leave sourcemap comment: github.com/jakubpawlowicz/clean-css/issues/589
   finalTree = cssmin(finalTree, options.cssmin);
-  //misteriously, output.comments=true will still stripe out sourcemap comment in the end
-  //FIXME: there's no support for CoffeeScript sourcemaps yet: github.com/kimroen/ember-cli-coffeescript/issues/7
-  finalTree = jsmin(finalTree, options.jsmin);
 }
 finalTree = htmlmin(finalTree, options.htmlmin);
 //won't work without headers, I guess
